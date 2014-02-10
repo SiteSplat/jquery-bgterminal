@@ -16,7 +16,7 @@
             url: null,
             speed: 200,
             wait: 1000,
-            glowing: false
+            glow: false
         }, options );
 
         function _emulateTerminal() {
@@ -80,7 +80,7 @@
         		$terminal.append($cursor);
 
         		if (settings.glow) {
-        			$terminal.addClass('bgterminal-glowing');
+        			$terminal.addClass('bgterminal-glow');
         		}
         		
         		$terminal.data('bgterminal', {

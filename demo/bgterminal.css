@@ -36,7 +36,7 @@
 	transition-delay: 0;
 }
 
-.bgterminal.glowing {
+.bgterminal-glow {
 	animation: glow 5s;
 	-webkit-animation: glow 5s;
 	animation-direction: normal;
