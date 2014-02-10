@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>jQuery bgTerminal by Davide Cassenti</title>
+	<meta name="title" content="jQuery bgTerminal by Davide Cassenti" />
+	<meta name="description" content="Create a terminal-like background for your webpage" />
+	<meta content="http://davide.cassenti.net/projects/bgterminal/demo.html" property="og:url" />
+	<meta name="author" content="Davide Cassenti">
+	<link rel="canonical" href="http://davide.cassenti.net/projects/bgterminal/demo.html" />
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="jquery.bgterminal.min.js"></script>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300" type="text/css" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inconsolata" type="text/css" />
+	<link href='bgterminal.css' rel='stylesheet' type='text/css' />
+	<style>
+    body {
+		font-family: 'Source Sans Pro';
+		font-weight: 300;
+		color: white;
+		background-color: rgb(20, 20, 20);
+    }
+
+    a {
+    	text-decoration: none;
+    	color: red;
+    }
+
+    a:hover {
+    	color: orange;
+    }
+
+    code, pre {
+    	font-family: "Inconsolata", monospace;
+    	font-size: 20px;
+    	padding: 10px 20px;
+    	margin: 0;
+    	color: deepskyblue;
+    	display: block;
+    	text-align: left;
+    }
+    
+    h1 {
+    	font-size: 60px;
+    	color: yellow;
+    	margin: 20px 10px 5px 10px;
+    	padding: 0;
+    }
+
+    h2 {
+    	color: orange;
+    	margin: 0 30px 30px 30px;
+    	padding: 0;
+    	font-style: italic;
+    	font-size: 32px;
+    }
+
+    h3 {
+    	padding: 0;
+    	margin: 0;
+    	font-size: 40px;
+    	color: rgb(255, 100, 50);
+    }
+
+    p {
+    	font-size: 24px;
+    	margin: 0;
+    	padding: 0 30px 30px 30px;
+    	text-align: justify;
+    }
+
+    .inline {
+    	display: inline;
+    	padding: 0;
+    	margin: 0;
+    }
+
+    table {
+    	border: 0;
+    	border-collapse: collapse;
+    }
+
+    th, td {
+    	text-align: left;
+    	padding: 5px;
+    	border: 1px solid #aaa
+    }
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('#terminal').bgTerminal({
+				url: 'demo.html',
+				glowing: true
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="terminal"></div>
+	<h1>jQuery Background Terminal</h1>
+
+	<h2>Create a terminal-like animated background!</h2>
+
+	<p>jQuery Background Terminal allows you to add a geeky-effect to your site. The plugin creates a terminal-like effect on an element, and automatically emulates the typing.</p>
+
+	<h3>How to use</h3>
+
+	<p>First off, you need to include jQuery, the javascript plugin, and the CSS in the head of your page:
+		<code>
+			&lt;script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;<br/>
+			&lt;script type="text/javascript" src="jquery.bgterminal.min.js"&gt;&lt;/script&gt;<br/>
+			&lt;link href='bgterminal.css' rel='stylesheet' type='text/css' /&gt;
+		</code>
+	</p>
+
+	<p>Once you did that, you can apply the effect to any element. However, it would be better to create a div as the first element the body, and apply the effect to it.
+
+		<code>
+			&lt;body&gt;<br/>
+			&nbsp;&nbsp;&lt;div id="terminal"&gt;&lt;/div&gt;
+		</code>
+	</p>
+
+
+	<p>Then, add the effect!
+		<code>
+			&lt;script&gt;<br/>
+			&nbsp;&nbsp;$(document).ready(function() {<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;$('#terminal').bgTerminal({<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: 'index.html',<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed: 500,<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wait: 1000,<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;glowing: true<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+			&nbsp;&nbsp;});<br/>
+			&lt;/script&gt;
+		</code>
+	</p>
+
+	<h3>Parameters</h3>
+	<p>The following parameters are supported when calling <code class="inline">bgTerminal</code>:
+		<table>
+			<tr><th>name</th><th>description</th><th>default</th></tr>
+			<tr>
+				<td>url</td>
+				<td>The page to load and display in the terminal</td>
+				<td>undefined</td>
+			</tr>
+			<tr>
+				<td>speed</td>
+				<td>Type speed in milliseconds. This is the time between two character are typed</td>
+				<td>200</td>
+			</tr>
+			<tr>
+				<td>wait</td>
+				<td>The number of milliseconds to wait at the end of the line (when \n is found)</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>glowing</td>
+				<td>If true, the terminal will have a glowing effect</td>
+				<td>false</td>
+			</tr>
+		</table>
+	</p>
+
+	<p><strong>Note</strong>: you can pass a callback function as a second parameter of <code class="inline">bgTerminal</code>. This function will be called once the terminal has been created</p>
+
+	<h3>Change speed</h3>
+
+	<p>A few functions can be called to retrieve or change the speed of the terminal, once it has been created. To call a function, you need to retrieve the <code class="inline">bgterminal</code> data from the element, and then call the methods:
+
+		<code>
+			var terminal = $('#bgterminal').data('bgterminal');<br/>
+			terminal.speed(); // return an object containing the values of speed and wait<br/>
+			terminal.speedUp(amount); // speed both speed and wait time up 'amount' times (default: 1.5)<br/>
+			terminal.speedDown(amount); // speed both speed and wait time down 'amount' times (default: 1.5)
+		</code>
+	</p>
+</body>
+</html>
