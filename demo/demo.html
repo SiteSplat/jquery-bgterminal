@@ -95,7 +95,9 @@
 		$(document).ready(function(){
 			$('#terminal').bgTerminal({
 				url: 'demo.html',
-				glow: true
+				glow: true,
+				speed: 100,
+				wait: 1000
 			});
 		});
 	</script>
@@ -119,11 +121,16 @@
 			</code>
 		</p>
 
-		<p>Once you did that, you can apply the effect to any element. However, it would be better to create a div as the first element the body, and apply the effect to it.
+		<p>Once you did that, you can apply the effect to any element. However, it would be better to create a div as the first element the body, and apply the effect to it.</p>
+
+		<p>Also, note that by default - if you don't change the CSS - the terminal element will have position set to <code class="inline">fixed</code>. To avoid issues with the content, you can create an additional div with position <code class="inline">relative</code> and put your html there.
 
 			<code>
 				&lt;body&gt;<br/>
-				&nbsp;&nbsp;&lt;div id="terminal"&gt;&lt;/div&gt;
+				&lt;div id="terminal"&gt;&lt;/div&gt;<br/>
+				&lt;div id="content" style="position:relative"&gt;<br/>
+				&nbsp;&nbsp;&lt;!-- Your content here --&gt;<br/>
+				&lt;/div&gt;
 			</code>
 		</p>
 
